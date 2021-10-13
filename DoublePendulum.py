@@ -16,7 +16,7 @@ import numpy as np
 G = 9.8     # 重力加速度 [m/s^2]
 L1 = 1.0    # 単振り子1の長さ [m]
 L2 = 0.3    # 単振り子2の長さ [m]
-M1 = 3.5    # おもり1の質量 [kg]
+M1 = 2.5    # おもり1の質量 [kg]
 M2 = 0.3    # おもり2の質量 [kg]
 
 
@@ -34,8 +34,7 @@ def derivs(t, state):
     dydx[1] = ((M2 * L1 * state[1] * state[1] * sin(delta) * cos(delta)
                 + M2 * G * sin(state[2]) * cos(delta)
                 + M2 * L2 * state[3] * state[3] * sin(delta)
-                - (M1+M2) * G * sin(state[0]))
-               / den1)
+                - (M1+M2) * G * sin(state[0])) / den1)
 
     dydx[2] = state[3]
 
@@ -103,7 +102,7 @@ time_text = ax.text(0.05, 0.9, '', transform=ax.transAxes)
 ax.text(0.8, 1.3, "L1 = 1.0 m")
 ax.text(0.8, 1.2, "L2 = 0.3 m")
 
-ax.text(0.8, 1.0, "M1 = 3.5 kg")
+ax.text(0.8, 1.0, "M1 = 2.5 kg")
 ax.text(0.8, 0.9, "M2 = 0.3 kg")
 
 xlocus, ylocus = [], []
